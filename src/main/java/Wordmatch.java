@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class Wordmatch {
-    public void readFile() throws IOException {
-        String[] words = readBuffer().split(" ");
+    public void analizingFile() throws IOException {
+        String[] words = readBuffer("words.txt").split(" ");
         HashMap<String, Integer> wordAndCount = new HashMap<>();
         for(String word: words) {
             if(wordAndCount.containsKey(word)) {
@@ -31,10 +31,10 @@ public class Wordmatch {
         }
     }
 
-    private static String readBuffer() throws IOException {
+    private static String readBuffer(String fileName) throws IOException {
         String userDirectory = new File("").getAbsolutePath();
-        BufferedReader reader = new BufferedReader( new FileReader (userDirectory +"/src/main/resources/words.txt"));
-        String line = null;
+        BufferedReader reader = new BufferedReader( new FileReader (userDirectory +"/src/main/resources/" + fileName));
+        String line;
         StringBuilder stringBuilder = new StringBuilder();
         while((line = reader.readLine()) != null ) {
             stringBuilder.append(line);
@@ -67,7 +67,7 @@ public class Wordmatch {
         }
 
         public String getCommonValue() {
-            return value + key.toString();
+            return value + key;
         }
     }
 
