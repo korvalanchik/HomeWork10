@@ -6,8 +6,11 @@ public class Demo {
         ValidationPhoneNumber tel = new ValidationPhoneNumber();
         tel.readAndValidateTel("tel.txt");
 
-        System.out.println("\nCounting and sorting words");
+        System.out.println("\nJSONinization) object");
+        ConvertJSON convertJSON = new ConvertJSON();
+        convertJSON.readAndConvertJSON("object.txt");
 
+        System.out.println("\nCounting and sorting words");
         Wordmatch inp = new Wordmatch();
         inp.analizingFile();
     }
